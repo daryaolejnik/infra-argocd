@@ -22,4 +22,4 @@ spec:
     targetRevision: 3.13.0
     chart: metrics-server
     helm:
-      releaseName: metrics-server1
+      releaseName: metrics-server
