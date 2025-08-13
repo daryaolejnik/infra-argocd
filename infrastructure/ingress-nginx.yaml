@@ -18,6 +18,8 @@ spec:
 
   project: infrastructure
   source:
-    repoURL: git@github.com:daryaolejnik/argocd.git
-    targetRevision: HEAD
-    path: infrastructure/ingress-nginx
+    repoURL: "https://kubernetes.github.io/ingress-nginx"
+    targetRevision: 4.7.1
+    chart: ingress-nginx
+    helm:
+      releaseName: ingress-nginx
