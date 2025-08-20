@@ -1,0 +1,33 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  namespace: argocd
+  name: load-balancer-controller
+  annotations:
+
+spec:
+  destination:
+    namespace: infrastructure
+    name: in-cluster
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
+  project: infrastructure
+  source:
+    repoURL: "https://aws.github.io/eks-charts"
+    targetRevision: 1.13.4
+    chart: aws-load-balancer-controller
+    helm:
+      releaseName: ingress-nginx
+      values: |
+        clusterName: "doliinyk-eks-Cw4ZnLHG"
+        vpcId: "vpc-00280c8c6aec3a8d4"
+        serviceAccount:
+          annotations:
+            eks.amazonaws.com/role-arn: arn:aws:iam::102205351130:role/doliinyk-project-aws-load-balancer-controller-role
