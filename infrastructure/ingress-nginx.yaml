@@ -35,5 +35,4 @@ spec:
               service.beta.kubernetes.io/aws-load-balancer-name: "doliinyk-app-nlb"
               service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-north-1:102205351130:certificate/26d4a81f-0696-4994-8363-8d2be24799db
               service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
-              service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
             type: LoadBalancer
