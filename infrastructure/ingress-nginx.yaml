@@ -27,7 +27,9 @@ spec:
       releaseName: ingress-nginx
       values: |
         controller:
+          ingressClass: nginx
           service:
+            enabled: true
             annotations:
               service.beta.kubernetes.io/aws-load-balancer-type: "external"
               service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: "ip"
