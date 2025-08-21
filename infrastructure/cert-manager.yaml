@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  namespace: argocd
+  name: cert-manager
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
+  destination:
+    namespace: cert-manager
+    name: in-cluster
+
+  project: infrastructure
+
+  source:
+    repoURL: https://charts.jetstack.io
+    chart: cert-manager
+    targetRevision: 1.18.2
+    helm:
+      releaseName: cert-manager
+      values: |
+        installCRDs: true
