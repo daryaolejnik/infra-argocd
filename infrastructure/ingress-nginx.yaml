@@ -31,16 +31,16 @@ spec:
           service:
             enabled: true
             annotations:
-              service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
-              # service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: "ip"
-              # service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
-              # service.beta.kubernetes.io/aws-load-balancer-name: "doliinyk-app-nlb"
+              service.beta.kubernetes.io/aws-load-balancer-type: "external"
+              service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: "ip"
+              service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
+              service.beta.kubernetes.io/aws-load-balancer-name: "doliinyk-app-nlb"
               service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-north-1:102205351130:certificate/26d4a81f-0696-4994-8363-8d2be24799db
               service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
-              service.beta.kubernetes.io/aws-load-balancer-backend-protocol: 'ssl'
+              # service.beta.kubernetes.io/aws-load-balancer-backend-protocol: 'ssl'
               service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: '*'
               service.beta.kubernetes.io/aws-load-balancer-internal: false
             type: LoadBalancer
             enableHttp: false
-            targetPorts:
-              https: https
+            # targetPorts:
+            #   https: https
