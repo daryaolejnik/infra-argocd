@@ -27,6 +27,8 @@ spec:
       releaseName: ingress-nginx
       values: |
         controller:
+          serviceAccount:
+            name: aws-load-balancer-controller
           ingressClass: nginx
           service:
             enabled: true
