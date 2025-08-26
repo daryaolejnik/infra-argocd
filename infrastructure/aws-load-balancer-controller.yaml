@@ -25,7 +25,7 @@ spec:
     chart: aws-load-balancer-controller
     helm:
       values: |
-        clusterName: "doliinyk-eks-Cw4ZnLHG"
+        clusterName: "doliinyk-eks"
         vpcId: "vpc-00280c8c6aec3a8d4"
         serviceAccount:
           create: true
