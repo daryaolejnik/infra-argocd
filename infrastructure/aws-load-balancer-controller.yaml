@@ -29,6 +29,6 @@ spec:
         vpcId: "vpc-00280c8c6aec3a8d4"
         serviceAccount:
           create: true
-          name: ingress-nginx
+          name: aws-load-balancer-controller
           annotations:
             eks.amazonaws.com/role-arn: arn:aws:iam::102205351130:role/doliinyk-project-aws-load-balancer-controller-role
