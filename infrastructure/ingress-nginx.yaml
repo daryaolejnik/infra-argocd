@@ -46,3 +46,5 @@ spec:
             #   https: https
           config:
             use-proxy-protocol: "true"
+            real-ip-header: "proxy_protocol"
+            use-forwarded-headers: "true"
