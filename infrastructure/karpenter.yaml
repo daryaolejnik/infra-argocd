@@ -15,9 +15,9 @@ spec:
         serviceAccount:
           annotations:
             eks.amazonaws.com/role-arn: arn:aws:iam::102205351130:role/KarpenterController-20250827150933136500000001
-        settings:
-          clusterName: doliinyk-eks
-          clusterEndpoint: https://D60E1D32FD43F066FB60BBC9D1700968.gr7.eu-north-1.eks.amazonaws.com
+        clusterName: doliinyk-eks
+        clusterEndpoint: https://D60E1D32FD43F066FB60BBC9D1700968.gr7.eu-north-1.eks.amazonaws.com
+        aws:
           defaultInstanceProfile: Karpenter-doliinyk-eks-20250828091822192200000001
   destination:
     server: https://kubernetes.default.svc
