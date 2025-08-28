@@ -27,13 +27,6 @@ spec:
       releaseName: ingress-nginx
       values: |
         controller:
-          resources:
-            requests:
-              cpu: "30m"
-              memory: "64Mi"
-            limits:
-              cpu: "200m"
-              memory: "256Mi"
           ingressClass: nginx
           service:
             enabled: true
