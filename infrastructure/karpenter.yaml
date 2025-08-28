@@ -4,6 +4,12 @@ metadata:
   name: karpenter
   namespace: argocd
 spec:
+  ignoreDifferences:
+    - group: ""
+      kind: "Secret"
+      jsonPointers:
+        - /data
+
   project: default
   source:
     repoURL: https://charts.karpenter.sh
@@ -26,7 +32,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
-      syncOptions:
-        - ServerSideApply=true
-    # syncOptions:
-    #   - CreateNamespace=true
+    syncOptions:
+      - RespectIgnoreDifferences=true
