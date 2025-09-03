@@ -13,7 +13,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/aws/karpenter-provider-aws
-    targetRevision: "1.6.3"
+    targetRevision: "v1.6.3"
     path: charts/karpenter
     helm:
       releaseName: karpenter
