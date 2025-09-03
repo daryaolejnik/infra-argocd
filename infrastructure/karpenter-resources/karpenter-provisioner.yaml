@@ -1,15 +1,15 @@
-# apiVersion: karpenter.sh/v1
-# kind: Provisioner
-# metadata:
-#   name: default
-# spec:
-#   requirements:
-#     - key: "kubernetes.io/arch"
-#       operator: In
-#       values: ["arm64"]
-#     - key: "node.kubernetes.io/instance-type"
-#       operator: In
-#       values: ["t4g.xlarge", "t4g.large", "t4g.medium", t4g.small]
-#   providerRef:
-#     name: default
-#   ttlSecondsAfterEmpty: 30
+apiVersion: karpenter.sh/v1
+kind: Provisioner
+metadata:
+  name: default
+spec:
+  requirements:
+    - key: "kubernetes.io/arch"
+      operator: In
+      values: ["arm64"]
+    - key: "node.kubernetes.io/instance-type"
+      operator: In
+      values: ["t4g.xlarge", "t4g.large", "t4g.medium", t4g.small]
+  providerRef:
+    name: default
+  ttlSecondsAfterEmpty: 30
