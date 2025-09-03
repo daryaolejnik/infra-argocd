@@ -3,10 +3,12 @@ kind: EC2NodeClass
 metadata:
   name: default
 spec:
-  amiFamily: "AmazonLinux2"
+  amiFamily: "AL2023"
+  amiSelectorTerms:
+    - alias: "al2023@latest"
   subnetSelectorTerms:
-    - tags:
-        karpenter.sh/discovery: "doliinyk-eks"
+    # - tags:
+    #     karpenter.sh/discovery: "doliinyk-eks"
     - tags:
         Name: "education-vpc-private-eu-north-1a"
     - tags:
