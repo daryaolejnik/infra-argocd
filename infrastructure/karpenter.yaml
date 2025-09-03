@@ -12,20 +12,20 @@ spec:
 
   project: default
   source:
-    repoURL: https://github.com/karpenter/karpenter.git
-    targetRevision: "v0.33.2"
-    path: deploy/helm
+    repoURL: https://github.com/aws/karpenter-provider-aws
+    targetRevision: "1.6.3"
+    path: charts/karpenter
     helm:
       releaseName: karpenter
       parameters:
         - name: serviceAccount.annotations.eks\.amazonaws\.com/role-arn
           value: arn:aws:iam::102205351130:role/KarpenterController-20250902155901054700000003
-        - name: clusterName
+        - name: settings.clusterName
           value: doliinyk-eks
-        - name: clusterEndpoint
+        - name: settings.clusterEndpoint
           value: https://406482C29EF89540D7C3EEE3D0B63EC9.gr7.eu-north-1.eks.amazonaws.com
-        - name: aws.defaultInstanceProfile
-          value: Karpenter-doliinyk-eks-20250902160727580100000012
+        # - name: aws.defaultInstanceProfile
+        #   value: Karpenter-doliinyk-eks-20250902160727580100000012
     # repoURL: https://charts.karpenter.sh
     # chart: karpenter
     # targetRevision: 0.16.3
