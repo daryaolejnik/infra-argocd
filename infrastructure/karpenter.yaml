@@ -12,19 +12,33 @@ spec:
 
   project: default
   source:
-    repoURL: https://charts.karpenter.sh
-    chart: karpenter
-    targetRevision: 0.16.3
+    repoURL: https://github.com/karpenter/karpenter.git
+    targetRevision: "v0.33.2"
+    path: deploy/helm
     helm:
       releaseName: karpenter
-      values: |
-        serviceAccount:
-          annotations:
-            eks.amazonaws.com/role-arn: arn:aws:iam::102205351130:role/KarpenterController-20250902155901054700000003
-        clusterName: doliinyk-eks
-        clusterEndpoint: https://406482C29EF89540D7C3EEE3D0B63EC9.gr7.eu-north-1.eks.amazonaws.com
-        aws:
-          defaultInstanceProfile: Karpenter-doliinyk-eks-20250902160727580100000012
+      parameters:
+        - name: serviceAccount.annotations.eks\.amazonaws\.com/role-arn
+          value: arn:aws:iam::102205351130:role/KarpenterController-20250902155901054700000003
+        - name: clusterName
+          value: doliinyk-eks
+        - name: clusterEndpoint
+          value: https://406482C29EF89540D7C3EEE3D0B63EC9.gr7.eu-north-1.eks.amazonaws.com
+        - name: aws.defaultInstanceProfile
+          value: Karpenter-doliinyk-eks-20250902160727580100000012
+    # repoURL: https://charts.karpenter.sh
+    # chart: karpenter
+    # targetRevision: 0.16.3
+    # helm:
+    # releaseName: karpenter
+    # values: |
+    #   serviceAccount:
+    #     annotations:
+    #       eks.amazonaws.com/role-arn: arn:aws:iam::102205351130:role/KarpenterController-20250902155901054700000003
+    #   clusterName: doliinyk-eks
+    #   clusterEndpoint: https://406482C29EF89540D7C3EEE3D0B63EC9.gr7.eu-north-1.eks.amazonaws.com
+    #   aws:
+    #     defaultInstanceProfile: Karpenter-doliinyk-eks-20250902160727580100000012
   destination:
     server: https://kubernetes.default.svc
     namespace: kube-system
