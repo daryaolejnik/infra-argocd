@@ -6,6 +6,8 @@ spec:
   amiFamily: "AmazonLinux2"
   subnetSelectorTerms:
     - tags:
+        karpenter.sh/discovery: "doliinyk-eks"
+    - tags:
         Name: "education-vpc-private-eu-north-1a"
     - tags:
         Name: "education-vpc-private-eu-north-1c"
